@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import DarkVeil from './DarkVeil'
+import GradientText from './GradientText'
 
 const Hero = () => {
   return (
@@ -65,10 +66,14 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
           >
-            Elevating Testing in the{' '}
-                          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-400">
-                Age of AI
-              </span>
+                         Elevating Testing in the{' '}
+            <GradientText
+              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+              animationSpeed={7}
+              showBorder={false}
+            >
+              Age of AI
+            </GradientText>
           </motion.h1>
 
           {/* Subheading */}
