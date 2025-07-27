@@ -1,0 +1,71 @@
+Icon for Teams card in Our Services section 
+
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/wyaqzesp.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+Icon for AI Augmented test card
+
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/noncoqhc.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+Icon for Functional testing
+
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/iiudwewg.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+Icon for Performance Engineering card
+
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/utdckhgo.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+Security Icon
+
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/wepoiyzv.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+Test Utilities icon
+
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/vgxjrbxm.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+UAT Coordination icon
+
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/aksvbzmu.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+Release icon
+
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/jgeruqwm.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
