@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase-config';
+import { auth } from '../firebase-config.js';
 import Header from './Header';
 import Footer from './Footer';
 import DarkVeil from './DarkVeil';
