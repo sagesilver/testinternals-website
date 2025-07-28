@@ -8,3 +8,4 @@ build/
 .idea/
 *.tmp
 *.temp
+src/firebase-config.js

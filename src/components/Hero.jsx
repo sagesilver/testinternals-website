@@ -96,7 +96,10 @@ const Hero = () => {
             <button className="btn-primary text-lg px-8 py-4">
               Our Services
             </button>
-            <button className="btn-secondary text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-navy-900">
+            <button 
+              onClick={() => window.location.href = '/#contact'} 
+              className="btn-secondary text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-navy-900"
+            >
               Let's Talk
             </button>
           </motion.div>

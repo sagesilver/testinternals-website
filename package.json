@@ -10,10 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "date-fns": "^2.29.3",
+    "firebase": "^10.14.1",
     "framer-motion": "^10.16.4",
+    "gray-matter": "^4.0.3",
     "ogl": "^1.0.11",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.7",
+    "react-router-dom": "^6.30.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

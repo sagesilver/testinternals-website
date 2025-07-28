@@ -1,26 +1,36 @@
 import { motion } from 'framer-motion'
+import { useEffect } from 'react'
 
 const AISolutions = () => {
+  useEffect(() => {
+    // Load Lordicon script if not already loaded
+    if (!window.lordIcon) {
+      const script = document.createElement('script')
+      script.src = 'https://cdn.lordicon.com/lordicon.js'
+      script.async = true
+      document.head.appendChild(script)
+    }
+  }, [])
   const aiFeatures = [
     {
       title: 'Model-driven test generation',
       description: 'AI models that automatically generate comprehensive test cases based on your application requirements.',
-      icon: '🧠'
+      icon: 'https://cdn.lordicon.com/bkzrrccj.json'
     },
     {
       title: 'Autonomous regression cycles',
       description: 'Self-learning systems that continuously improve test coverage and identify regression issues.',
-      icon: '🔄'
+      icon: 'https://cdn.lordicon.com/vysppwvq.json'
     },
     {
       title: 'Requirements-to-test-case conversion',
       description: 'Instant conversion of business requirements into executable test scenarios.',
-      icon: '📋'
+      icon: 'https://cdn.lordicon.com/zcpmxjfa.json'
     },
     {
       title: 'AI-assisted risk prioritisation',
       description: 'Intelligent analysis to prioritize testing efforts based on risk assessment and impact analysis.',
-      icon: '⚖️'
+      icon: 'https://cdn.lordicon.com/rpvomrgr.json'
     }
   ]
 
@@ -81,8 +91,16 @@ const AISolutions = () => {
                   viewport={{ once: true }}
                   className="flex items-start space-x-4"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center text-2xl">
-                    {feature.icon}
+                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center">
+                    {feature.icon.startsWith('http') ? (
+                      <lord-icon
+                        src={feature.icon}
+                        trigger="hover"
+                        style={{ width: '40px', height: '40px' }}
+                      />
+                    ) : (
+                      <span className="text-2xl">{feature.icon}</span>
+                    )}
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-2">
@@ -101,7 +119,7 @@ const AISolutions = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               viewport={{ once: true }}
-              className="mt-8"
+              className="mt-8 text-center"
             >
               <button className="btn-primary text-lg px-8 py-4">
                 Learn More About AI Solutions
@@ -117,58 +135,24 @@ const AISolutions = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-              <div className="space-y-6">
-                <motion.div
-                  animate={{
-                    scale: [1, 1.05, 1],
-                    opacity: [0.7, 1, 0.7],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="w-full h-4 bg-gradient-to-r from-primary-400 to-blue-400 rounded-full"
+                                       <motion.div
+                animate={{
+                  scale: [1, 1.02, 1],
+                  rotate: [0, 1, -1, 0],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="bg-white/10 backdrop-blur-md rounded-2xl overflow-hidden border border-sky-500/80 shadow-2xl shadow-sky-500/30"
+              >
+                <img 
+                  src="/ai powered engine.png" 
+                  alt="AI Powered Testing Engine"
+                  className="w-full h-full object-cover border-2 border-sky-400/60"
                 />
-                <motion.div
-                  animate={{
-                    scale: [1, 1.05, 1],
-                    opacity: [0.7, 1, 0.7],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 0.5
-                  }}
-                  className="w-3/4 h-4 bg-gradient-to-r from-green-400 to-teal-400 rounded-full"
-                />
-                <motion.div
-                  animate={{
-                    scale: [1, 1.05, 1],
-                    opacity: [0.7, 1, 0.7],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1
-                  }}
-                  className="w-5/6 h-4 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"
-                />
-              </div>
-              
-              <div className="mt-8 text-center">
-                <div className="text-6xl mb-4">🤖</div>
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  AI-Powered Testing Engine
-                </h3>
-                <p className="text-gray-300">
-                  Continuously learning and improving
-                </p>
-              </div>
-            </div>
+              </motion.div>
           </motion.div>
         </div>
       </div>

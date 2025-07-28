@@ -1,18 +1,33 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Link, useLocation } from 'react-router-dom'
 
 const Header = ({ isScrolled }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const location = useLocation()
+
+  const handleNavigation = (href) => {
+    if (href.startsWith('/#')) {
+      // Always use window.location.href for hash navigation to ensure it works
+      window.location.href = href
+    }
+  }
 
   const menuItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'AI-Powered Solutions', href: '#ai-solutions' },
-    { name: 'Test Utilities', href: '#test-utilities' },
-    { name: 'About', href: '#about' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/#home' },
+    { name: 'Services', href: '/#services' },
+    { name: 'AI-Powered Solutions', href: '/#ai-solutions' },
+    { name: 'Test Utilities', href: '/#test-utilities' },
+    { name: 'About', href: '/#about' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/#contact' },
   ]
+
+  // Add Admin link only on blog pages
+  const isOnBlogPage = location.pathname === '/blog' || location.pathname.startsWith('/blog/')
+  const displayMenuItems = isOnBlogPage 
+    ? [...menuItems.slice(0, -1), { name: 'Admin', href: '/admin/login' }, menuItems[menuItems.length - 1]]
+    : menuItems
 
   return (
     <motion.header
@@ -32,40 +47,54 @@ const Header = ({ isScrolled }) => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center mt-2"
           >
-            <img 
-              src="/logo.png" 
-              alt="TestInternals Logo" 
-              style={{ height: '53px', width: 'auto' }}
-              className="md:hidden"
-            />
-            <img 
-              src="/logo.png" 
-              alt="TestInternals Logo" 
-              style={{ height: '63px', width: 'auto' }}
-              className="hidden md:block"
-            />
+            <Link to="/">
+              <img 
+                src="/logo.png" 
+                alt="TestInternals Logo" 
+                style={{ height: '53px', width: 'auto' }}
+                className="md:hidden"
+              />
+              <img 
+                src="/logo.png" 
+                alt="TestInternals Logo" 
+                style={{ height: '63px', width: 'auto' }}
+                className="hidden md:block"
+              />
+            </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {menuItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={`font-medium transition-colors duration-200 hover:text-primary-400 ${
-                  isScrolled ? 'text-white' : 'text-white'
-                }`}
-              >
-                {item.name}
-              </a>
+            {displayMenuItems.map((item) => (
+              item.href.startsWith('/#') ? (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavigation(item.href)}
+                  className={`font-medium transition-colors duration-200 hover:text-primary-400 ${
+                    isScrolled ? 'text-white' : 'text-white'
+                  }`}
+                >
+                  {item.name}
+                </button>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`font-medium transition-colors duration-200 hover:text-primary-400 ${
+                    isScrolled ? 'text-white' : 'text-white'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <button className="btn-primary">
+            <a href="mailto:admin@testinternals.com?subject=testinternals%20Consultation%20Request%3A%20" className="btn-primary">
               Book a Consultation
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -106,22 +135,35 @@ const Header = ({ isScrolled }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-gray-200"
+            className="md:hidden bg-gray-900 border-t border-gray-700"
           >
             <div className="px-4 py-6 space-y-4">
-              {menuItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block font-medium text-navy-700 hover:text-primary-600 transition-colors duration-200"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
+              {displayMenuItems.map((item) => (
+                item.href.startsWith('/#') ? (
+                  <button
+                    key={item.name}
+                    onClick={() => {
+                      handleNavigation(item.href)
+                      setIsMobileMenuOpen(false)
+                    }}
+                    className="block font-medium text-gray-300 hover:text-primary-400 transition-colors duration-200 w-full text-left"
+                  >
+                    {item.name}
+                  </button>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="block font-medium text-gray-300 hover:text-primary-400 transition-colors duration-200"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
-              <button className="btn-primary w-full mt-4">
+              <a href="mailto:admin@testinternals.com?subject=testinternals%20Consultation%20Request%3A%20" className="btn-primary w-full mt-4 block text-center">
                 Book a Consultation
-              </button>
+              </a>
             </div>
           </motion.div>
         )}

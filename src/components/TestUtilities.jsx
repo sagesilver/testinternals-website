@@ -1,30 +1,41 @@
 import { motion } from 'framer-motion'
+import { useEffect } from 'react'
 import SpotlightCard from './SpotlightCard'
 
 const TestUtilities = () => {
+  useEffect(() => {
+    // Load Lordicon script if not already loaded
+    if (!window.lordIcon) {
+      const script = document.createElement('script')
+      script.src = 'https://cdn.lordicon.com/lordicon.js'
+      script.async = true
+      document.head.appendChild(script)
+    }
+  }, [])
+
   const utilities = [
     {
       title: 'Test Data Generators',
       description: 'Intelligent data generation tools that create realistic test scenarios and edge cases.',
-      icon: '📊',
+      icon: 'https://cdn.lordicon.com/viyuourh.json',
       features: ['Realistic test data', 'Edge case generation', 'Data masking', 'Bulk data creation']
     },
     {
       title: 'Automated Validation Scripts',
       description: 'Pre-built validation frameworks that ensure consistent and reliable test execution.',
-      icon: '✅',
+      icon: 'https://cdn.lordicon.com/zmcusshs.json',
       features: ['Cross-browser validation', 'API response validation', 'UI element verification', 'Performance validation']
     },
     {
       title: 'Monitoring Dashboards',
       description: 'Real-time dashboards that provide insights into test execution and system health.',
-      icon: '📈',
+      icon: 'https://cdn.lordicon.com/qwjvogbj.json',
       features: ['Real-time metrics', 'Test execution tracking', 'Performance monitoring', 'Alert systems']
     },
     {
       title: 'Utility Tools for Testers',
       description: 'Specialized tools designed to streamline common testing tasks and workflows.',
-      icon: '🛠️',
+      icon: 'https://cdn.lordicon.com/zvamcipt.json',
       features: ['Test case management', 'Bug reporting tools', 'Environment setup', 'Test automation helpers']
     }
   ]
@@ -69,10 +80,18 @@ const TestUtilities = () => {
                 className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-8 h-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-800/50"
                 spotlightColor="rgba(90, 67, 128, 0.5)"
               >
-                <div className="flex items-start space-x-4 mb-6">
-                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-primary-500 to-blue-500 rounded-xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300">
-                    {utility.icon}
-                  </div>
+                                 <div className="flex items-start space-x-4 mb-6">
+                   <div className="flex-shrink-0 w-20 h-20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                     {utility.icon.startsWith('http') ? (
+                       <lord-icon
+                         src={utility.icon}
+                         trigger="hover"
+                         style={{ width: '70px', height: '70px', display: 'block', margin: '0 auto' }}
+                       />
+                     ) : (
+                       <span className="text-3xl">{utility.icon}</span>
+                     )}
+                   </div>
                   <div>
                     <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-primary-300 transition-colors duration-300">
                       {utility.title}
@@ -121,7 +140,10 @@ const TestUtilities = () => {
                Let us build custom utilities tailored to your specific testing needs and workflows.
              </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary text-lg px-8 py-4">
+              <button 
+                onClick={() => window.location.href = '/#contact'} 
+                className="btn-primary text-lg px-8 py-4"
+              >
                 Request Custom Tools
               </button>
               <button className="btn-secondary text-lg px-8 py-4">

@@ -17,7 +17,7 @@ const Services = () => {
     },
     {
       title: 'Functional & Regression Testing',
-      description: 'Comprehensive testing to ensure your software works flawlessly.',
+      description: 'Comprehensive test coverage and depth to ensure your software works flawlessly.',
       icon: '🔍',
       color: 'from-green-500 to-green-600'
     },
@@ -200,9 +200,9 @@ const Services = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <button className="btn-primary text-lg px-8 py-4">
+          <a href="mailto:admin@testinternals.com" className="btn-primary text-lg px-8 py-4">
             Explore All Services
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>

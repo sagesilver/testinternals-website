@@ -1,7 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const Contact = () => {
+  useEffect(() => {
+    // Load Lordicon script if not already loaded
+    if (!window.lordIcon) {
+      const script = document.createElement('script')
+      script.src = 'https://cdn.lordicon.com/lordicon.js'
+      script.async = true
+      document.head.appendChild(script)
+    }
+  }, [])
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -158,66 +167,51 @@ const Contact = () => {
                   </div>
                   <div>
                     <div className="text-white font-medium">Email</div>
-                    <a href="mailto:contact@testinternals.com" className="text-gray-300 hover:text-white transition-colors duration-200">
-                      contact@testinternals.com
+                    <a href="mailto:admin@testinternals.com" className="text-gray-300 hover:text-white transition-colors duration-200">
+                      admin@testinternals.com
                     </a>
                   </div>
                 </motion.div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="flex items-center space-x-4"
-                >
-                  <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-white font-medium">Location</div>
-                    <div className="text-gray-300">Melbourne, Australia</div>
-                  </div>
-                </motion.div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  viewport={{ once: true }}
-                  className="flex items-center space-x-4"
-                >
-                  <div className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-white font-medium">Response Time</div>
-                    <div className="text-gray-300">Within 24 hours</div>
-                  </div>
-                </motion.div>
+
+
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 text-center"
-            >
-              <div className="text-4xl mb-4">🗺️</div>
-              <h4 className="text-lg font-semibold text-white mb-2">Melbourne Office</h4>
-              <p className="text-gray-300 mb-4">Serving clients across Australia and globally</p>
-              <button className="text-primary-300 hover:text-white transition-colors duration-200">
-                View on Map →
-              </button>
-            </motion.div>
+                         {/* Map Placeholder */}
+             <motion.div
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.8, delay: 0.4 }}
+               viewport={{ once: true }}
+               className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 text-center relative overflow-hidden"
+             >
+                               {/* Background Image */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center opacity-20"
+                  style={{ backgroundImage: 'url(/global.jpg)' }}
+                />
+               {/* Content overlay */}
+               <div className="relative z-10">
+               <div className="mb-4 flex justify-center">
+                 <lord-icon
+                   src="https://cdn.lordicon.com/jsmloqvu.json"
+                   trigger="hover"
+                   style={{ width: '64px', height: '64px' }}
+                 />
+               </div>
+                                                               <p className="text-gray-300 mb-4 text-lg font-semibold">Based in Melbourne and serving clients across Australia and globally</p>
+                                <a 
+                   href="https://maps.google.com/?q=Melbourne+3000+Australia" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   className="text-primary-300 hover:text-white transition-colors duration-200"
+                 >
+                   View on Map →
+                 </a>
+               </div>
+             </motion.div>
           </motion.div>
         </div>
       </div>

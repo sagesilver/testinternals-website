@@ -69,3 +69,84 @@ Release icon
     trigger="hover"
     style="width:250px;height:250px">
 </lord-icon>
+
+
+Model-driven test generation icon
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/bkzrrccj.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+Autonomous regression cycles
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/vysppwvq.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+Requirements-to-test conversion
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/zcpmxjfa.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+AI-assisted prioritisation
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/rpvomrgr.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+Test Data Generators
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/viyuourh.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+Automated Validation Scripts
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/zmcusshs.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+Monitoring Dashboards
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/qwjvogbj.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+Utility Tools for Testers
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/zvamcipt.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+Melbourne office
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/jsmloqvu.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>
+
+Mail Icon
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/zvamcipt.json"
+    trigger="hover"
+    style="width:250px;height:250px">
+</lord-icon>

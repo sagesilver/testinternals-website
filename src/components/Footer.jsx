@@ -112,6 +112,11 @@ const Footer = () => {
             <p className="mt-2">
               Built with React, Vite, and Tailwind CSS
             </p>
+            <p className="mt-1">
+              <a href="https://lordicon.com/" className="text-gray-400 hover:text-white transition-colors duration-200">
+                Icons by Lordicon.com
+              </a>
+            </p>
           </div>
         </motion.div>
       </div>
