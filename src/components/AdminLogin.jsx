@@ -42,7 +42,7 @@ const AdminLogin = () => {
       } else {
         // Sign out the user if they don't have the correct email
         await auth.signOut()
-        setError('Access denied. Only testinternals@gmail.com is authorized.')
+        setError('Access Denied: Only authorised admins allowed.')
       }
     } catch (error) {
       console.error('Login error:', error)

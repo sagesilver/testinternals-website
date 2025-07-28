@@ -2,16 +2,15 @@
 // For now, we'll create a secure client-side approach with environment checks
 
 import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
+import { auth } from '../firebase-config';
 import { db } from '../firebase-config';
 
 const NEWSLETTER_COLLECTION = 'newsletter_emails';
 
-// In production, you'd want to check if user is authenticated admin
-const isAdminEnvironment = () => {
-  // For development, allow localhost
-  // In production, you'd check Firebase Auth admin claims
-  return window.location.hostname === 'localhost' || 
-         window.location.hostname === '127.0.0.1';
+// Check if current user is authenticated admin
+const isAdminAuthenticated = () => {
+  const user = auth.currentUser;
+  return user && user.email === 'testinternals@gmail.com';
 };
 
 /**
@@ -19,7 +18,7 @@ const isAdminEnvironment = () => {
  * @returns {Promise<Array>}
  */
 export const getNewsletterSubscribersAdmin = async () => {
-  if (!isAdminEnvironment()) {
+  if (!isAdminAuthenticated()) {
     throw new Error('Unauthorized: Admin access required');
   }
 
@@ -52,7 +51,7 @@ export const getNewsletterSubscribersAdmin = async () => {
  * @returns {Promise<{success: boolean, message: string}>}
  */
 export const deleteNewsletterSubscriberAdmin = async (documentId) => {
-  if (!isAdminEnvironment()) {
+  if (!isAdminAuthenticated()) {
     throw new Error('Unauthorized: Admin access required');
   }
 
