@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "prebuild": "npm run sitemap",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sitemap": "node ./scripts/generate-sitemap.mjs"
   },
   "dependencies": {
     "date-fns": "^2.29.3",
